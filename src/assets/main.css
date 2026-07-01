@@ -1,0 +1,90 @@
+:root {
+  --nh-primary: #1e3a5f;
+  --nh-accent: #d64545;
+  --nh-bg: #f7f6f2;
+  --nh-text: #23272b;
+  --nh-muted: #6b7280;
+}
+
+body {
+  background-color: var(--nh-bg);
+  color: var(--nh-text);
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.navbar-brand {
+  font-family: 'Georgia', serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nh-navbar {
+  background-color: var(--nh-primary) !important;
+  border-bottom: 3px solid var(--nh-accent);
+}
+
+.nh-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.nh-navbar .nav-link.router-link-exact-active {
+  color: #fff !important;
+  border-bottom: 2px solid var(--nh-accent);
+}
+
+.nh-card {
+  background: #fff;
+  border: 1px solid #e5e3dc;
+  border-radius: 4px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  height: 100%;
+}
+
+.nh-card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.nh-card-img {
+  height: 180px;
+  object-fit: cover;
+  background-color: #e5e3dc;
+}
+
+.nh-badge {
+  background-color: var(--nh-accent);
+  color: #fff;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.nh-eyebrow {
+  color: var(--nh-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nh-muted {
+  color: var(--nh-muted);
+}
+
+.nh-btn-primary {
+  background-color: var(--nh-primary);
+  border-color: var(--nh-primary);
+  color: #fff;
+}
+
+.nh-btn-primary:hover {
+  background-color: #16293f;
+  border-color: #16293f;
+  color: #fff;
+}
+
+.nh-hero {
+  background: linear-gradient(135deg, var(--nh-primary) 0%, #16293f 100%);
+  color: #fff;
+  padding: 3rem 0;
+}
