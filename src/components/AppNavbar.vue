@@ -20,11 +20,6 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/about">Biz haqimizda</router-link>
           </li>
-          <li class="nav-item">
-            <router-link to="/" class="nav-link">
-              Contact Section
-            </router-link>
-          </li>
         </ul>
       </div>
     </div>

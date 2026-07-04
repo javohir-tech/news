@@ -13,13 +13,9 @@
     <div class="container pb-5">
       <!-- Kategoriyalar -->
       <div class="d-flex flex-wrap gap-2 mb-4">
-        <button
-          v-for="cat in categories"
-          :key="cat.value"
-          class="btn btn-sm"
+        <button v-for="cat in categories" :key="cat.value" class="btn btn-sm"
           :class="cat.value === activeCategory ? 'nh-btn-primary' : 'btn-outline-secondary'"
-          @click="onCategoryClick(cat.value)"
-        >
+          @click="onCategoryClick(cat.value)">
           {{ cat.label }}
         </button>
       </div>
@@ -35,11 +31,7 @@
       </div>
 
       <div v-else class="row g-4">
-        <div
-          v-for="(article, idx) in headlines"
-          :key="article.url + idx"
-          class="col-12 col-sm-6 col-lg-4"
-        >
+        <div v-for="(article, idx) in headlines" :key="article.url + idx" class="col-12 col-sm-6 col-lg-4">
           <NewsCard :article="article" />
         </div>
       </div>
@@ -48,9 +40,10 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapState, mapActions } from "pinia"
 import NewsCard from '@/components/NewsCard.vue'
 import LoadingSpinner from '@/components/LoadingSpinner.vue'
+import { useNewsStore } from "../store";
 
 export default {
   name: 'HomeView',
@@ -68,7 +61,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['headlines', 'isLoading', 'error', 'activeCategory'])
+    ...mapState(useNewsStore , ['headlines', 'isLoading', 'error', 'activeCategory'])
   },
   created() {
     if (this.headlines.length === 0) {
@@ -76,7 +69,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['fetchHeadlines', 'changeCategory']),
+    ...mapActions(useNewsStore , ['fetchHeadlines', 'changeCategory']),
     onCategoryClick(category) {
       if (category !== this.activeCategory) {
         this.changeCategory(category)

@@ -40,7 +40,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState } from 'pinia'
+import { useNewsStore } from '../store';
 
 export default {
   name: 'NewsDetailView',
@@ -51,7 +52,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getArticleByEncodedUrl']),
+    ...mapState(useNewsStore , ['getArticleByEncodedUrl']),
     article() {
       return this.getArticleByEncodedUrl(this.encodedUrl)
     },

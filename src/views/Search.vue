@@ -4,12 +4,8 @@
 
     <form class="row g-2 mb-4" @submit.prevent="onSearch">
       <div class="col-12 col-sm-8">
-        <input
-          v-model="query"
-          type="text"
-          class="form-control"
-          placeholder="Masalan: elon musk, iqtisodiyot, futbol..."
-        >
+        <input v-model="query" type="text" class="form-control"
+          placeholder="Masalan: elon musk, iqtisodiyot, futbol...">
       </div>
       <div class="col-12 col-sm-4">
         <button type="submit" class="btn nh-btn-primary w-100" :disabled="!query.trim()">
@@ -33,11 +29,7 @@
         "{{ lastSearchQuery }}" bo'yicha {{ searchResults.length }} ta natija topildi
       </p>
       <div class="row g-4">
-        <div
-          v-for="(article, idx) in searchResults"
-          :key="article.url + idx"
-          class="col-12 col-sm-6 col-lg-4"
-        >
+        <div v-for="(article, idx) in searchResults" :key="article.url + idx" class="col-12 col-sm-6 col-lg-4">
           <NewsCard :article="article" />
         </div>
       </div>
@@ -50,9 +42,10 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from 'pinia'
 import NewsCard from '@/components/NewsCard.vue'
 import LoadingSpinner from '@/components/LoadingSpinner.vue'
+import { useNewsStore } from '../store';
 
 export default {
   name: 'SearchView',
@@ -64,11 +57,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['searchResults', 'isLoading', 'error']),
-    ...mapState(['lastSearchQuery'])
+    ...mapState(useNewsStore, ['searchResults', 'isLoading', 'error', 'lastSearchQuery'])
   },
   methods: {
-    ...mapActions(['searchNews']),
+    ...mapActions(useNewsStore , ['searchNews']),
     async onSearch() {
       if (!this.query.trim()) return
       this.hasSearched = true
