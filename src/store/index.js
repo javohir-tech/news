@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import newsApi from "../services/newsApi";
 
-export const useNewsStore = defineStore("news", {
+const useNewsStore = defineStore("news", {
     state: () => ({
         headlines: [],
         searchResults: [],
@@ -62,3 +62,5 @@ function formatApiError(err) {
     }
     return 'Nomalum xatolik yuz berdi'
 }
+
+export default useNewsStore

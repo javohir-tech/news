@@ -43,7 +43,7 @@
 import { mapState, mapActions } from "pinia"
 import NewsCard from '@/components/NewsCard.vue'
 import LoadingSpinner from '@/components/LoadingSpinner.vue'
-import { useNewsStore } from "../store";
+import useNewsStore from "../store";
 
 export default {
   name: 'HomeView',

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_KEY = process.env.VUE_APP_NEWS_API_KEY
+const API_KEY = import.meta.env.VITE_APP_NEWS_API_KEY
 const BASE_URL = 'https://newsapi.org/v2'
 
 const client = axios.create({

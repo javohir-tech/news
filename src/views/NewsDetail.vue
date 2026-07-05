@@ -41,7 +41,7 @@
 
 <script>
 import { mapState } from 'pinia'
-import { useNewsStore } from '../store';
+import useNewsStore  from '../store';
 
 export default {
   name: 'NewsDetailView',
